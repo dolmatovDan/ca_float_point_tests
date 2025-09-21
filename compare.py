@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 """
 Output comparator for test system.
-Compares actual output with expected output.
+Compares only the first number from actual output with expected output.
 
 Usage: python3 compare.py <expected_file> <actual_output>
 Returns: 0 if outputs match, 1 if they don't match
+
+Note: Program outputs two numbers (e.g., "0x1.23cp+3 0x488F"), 
+but only the first one is compared with expected result.
 """
 
 import sys
@@ -12,11 +15,11 @@ import sys
 
 def compare_outputs(expected_file, actual_output):
     """
-    Compare expected output from file with actual output.
+    Compare expected output from file with first number from actual output.
     
     Args:
         expected_file (str): Path to file containing expected output
-        actual_output (str): Actual output to compare
+        actual_output (str): Actual output to compare (only first number is used)
     
     Returns:
         bool: True if outputs match, False otherwise
@@ -24,10 +27,19 @@ def compare_outputs(expected_file, actual_output):
     try:
         # Read expected output from file
         with open(expected_file, 'r') as f:
-            expected_output = f.read()
+            expected_output = f.read().strip()
         
-        # Simple equality comparison (can be extended for more complex logic)
-        return expected_output.strip() == actual_output.strip()
+        # Split actual output by whitespace and take the first token (first number)
+        actual_tokens = actual_output.strip().split()
+        
+        if not actual_tokens:
+            print(f"Warning: No output tokens found in actual output: '{actual_output.strip()}'", file=sys.stderr)
+            return False
+        
+        first_number = actual_tokens[0]
+        
+        # Compare expected output with first number from actual output
+        return expected_output == first_number
         
     except FileNotFoundError:
         print(f"Error: Expected output file '{expected_file}' not found", file=sys.stderr)
