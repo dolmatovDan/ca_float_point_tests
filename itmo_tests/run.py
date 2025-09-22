@@ -1,7 +1,7 @@
 import subprocess
 import csv
 
-path_to_exe = ""
+path_to_exe = "../../mathcs-ca-25-floating-point-dolmatovDan/main"
 
 with open("true_gen_float_mult_tests.tsv", 'r', encoding='utf-8') as file:
     tsv_file = csv.reader(file, delimiter=",")
@@ -23,7 +23,7 @@ with open("true_gen_float_mult_tests.tsv", 'r', encoding='utf-8') as file:
         stderr = process.stderr
 
         print("--------------------")
-        print(f"Test: {line[0]}", end="")
+        print(f"Test: {correct}", end="")
         if stderr:
             print(f"\n\033[91mError: {stderr}\033[0m")
             error.append(f"{line[0]}")
