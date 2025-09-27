@@ -1,1 +1,1 @@
-nan 0xFF10
+nan
