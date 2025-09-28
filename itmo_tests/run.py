@@ -16,6 +16,8 @@ with open("true_gen_float_+-_tests.tsv", 'r', encoding='utf-8') as file:
             if arr[3] == '*':
                 arr[3] = "\\*"
             correct = " ".join([arr[0], arr[1], arr[3], arr[2], arr[4]])
+        elif len(arr) == 6:
+            correct = " ".join(arr)
         else:
             correct = line[0]
         process = subprocess.run(f"{path_to_exe} {correct}", shell=True, capture_output=True, text=True)
