@@ -3,7 +3,7 @@ import csv
 
 path_to_exe = "../../mathcs-ca-25-floating-point-dolmatovDan/main"
 
-with open("true_gen_float_+-_tests.tsv", 'r', encoding='utf-8') as file:
+with open("true_gen_float_mult_tests.tsv", 'r', encoding='utf-8') as file:
     tsv_file = csv.reader(file, delimiter=",")
     passed = []
     failed = []
