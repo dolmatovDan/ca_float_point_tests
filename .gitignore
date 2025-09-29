@@ -1,3 +1,9 @@
 Makefile
 compare.py
 tests/itmo
+tests/parse_fma_Evgeny
+tests/parse_fma_Evgeny.cpp
+tests/fma_tests.txt
+tests/fma_answers.txt
+.gitignore
+.vscode
