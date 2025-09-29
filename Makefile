@@ -2,13 +2,13 @@
 # Usage: EXECUTABLE=./your_program make test
 
 # Test executable (can be overridden with EXECUTABLE env var)
-EXECUTABLE = python ../mathcs-ca-25-floating-point-Petroleumus/main.py
+EXECUTABLE ?= ./main
 
 # Comparator script
-COMPARATOR ?= python compare.py
+COMPARATOR ?= python3 compare.py
 
 # Test filter regex (optional - filters test names)
-FILTER ?= ./.*
+FILTER ?= .*
 
 # Temporary directory for cross-platform compatibility
 TEMP_DIR = ./.temp
