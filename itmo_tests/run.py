@@ -38,5 +38,3 @@ with open("true_gen_float_+-_tests.tsv", 'r', encoding='utf-8') as file:
             print(f"Output: {stdout}")
             failed.append(f"{line[0]}")
     print("Passed:", len(passed), "tests; failed", len(failed), "tests; error in", len(error), "tests.")
-input("\nPress Enter to continue...")
-
